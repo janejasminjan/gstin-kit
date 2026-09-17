@@ -1,0 +1,37 @@
+{
+  "name": "gstin-kit",
+  "version": "0.1.0",
+  "description": "Dependency-free TypeScript toolkit for Indian GSTINs, tax math, invoices, HSN/SAC codes, GSTR-1 and GSTR-3B.",
+  "license": "MIT",
+  "author": "Badrul Muneer",
+  "type": "module",
+  "sideEffects": false,
+  "files": ["dist", "README.md", "LICENSE"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./gstin": { "types": "./dist/gstin/index.d.ts", "import": "./dist/gstin/index.js" },
+    "./tax": { "types": "./dist/tax/index.d.ts", "import": "./dist/tax/index.js" },
+    "./invoice": { "types": "./dist/invoice/index.d.ts", "import": "./dist/invoice/index.js" },
+    "./hsn": { "types": "./dist/hsn/index.d.ts", "import": "./dist/hsn/index.js" },
+    "./gstr1": { "types": "./dist/gstr1/index.d.ts", "import": "./dist/gstr1/index.js" },
+    "./gstr3b": { "types": "./dist/gstr3b/index.d.ts", "import": "./dist/gstr3b/index.js" }
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.1.5",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.5"
+  },
+  "engines": { "node": ">=18" },
+  "keywords": ["gst", "gstin", "india", "cgst", "sgst", "igst", "gstr1", "gstr3b", "hsn", "sac", "invoice"]
+}
